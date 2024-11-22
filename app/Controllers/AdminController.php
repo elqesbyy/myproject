@@ -6,20 +6,16 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\Admin;
 
+
 class AdminController extends BaseController
 {
-    protected $admin;
 
-    public function __construct()
-    {
-        $this->admin = new Admin();
-    }
 
      // Display all admins
      public function index()
      {
-         $data['admins'] = $this->admin->findAll();
-         return view('admin/index', $data);
+        //  $data['admins'] = $this->admin->findAll();
+         return view('admin/index');
      }
 
      // Show create form
@@ -31,13 +27,24 @@ class AdminController extends BaseController
          // Save new admin
     public function store()
     {
-        $this->admin->save([
-            'name' => $this->request->getPost('name'),
-            'email' => $this->request->getPost('email'),
-            'password' => $this->request->getPost('password'),
-        ]);
+        $admin = new Admin();
 
-        return redirect()->to('/admin');
+        // Get input data 
+        $data = [
+            'username' => $this->request->getPost('username'),
+            'email' => $this->request->getPost('email'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Hash the password
+        ];
+// dd($data);
+         // Insert the data into the database
+        //  $admin->insert($data);
+         if ($admin->insert($data)) {
+            return redirect()->to('admin/create')->with('success', 'Admin created successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Failed to create admin.');
+        }
+        
+
     }
    
       // Show edit form
