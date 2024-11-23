@@ -11,6 +11,9 @@ $routes->get('/', 'Home::index');
 $routes->get('admin', 'AdminController::index');
 $routes->get('admin/create', 'AdminController::create');
 $routes->post('admin/store', 'AdminController::store');
+// $routes->get('test', 'TestController::index');
+// $routes->post('test', 'TestController::store');
+
 
 
 // $routes->group('admin', function($routes) {

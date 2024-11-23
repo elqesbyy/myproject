@@ -14,8 +14,8 @@ class AdminController extends BaseController
      // Display all admins
      public function index()
      {
-        //  $data['admins'] = $this->admin->findAll();
-         return view('admin/index');
+         $data['admins'] = $this->admin->findAll();
+         return view('admin/index', $data['admins']);
      }
 
      // Show create form
@@ -25,27 +25,35 @@ class AdminController extends BaseController
      }
 
          // Save new admin
-    public function store()
-    {
-        $admin = new Admin();
-
-        // Get input data 
-        $data = [
-            'username' => $this->request->getPost('username'),
-            'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Hash the password
-        ];
-// dd($data);
-         // Insert the data into the database
-        //  $admin->insert($data);
-         if ($admin->insert($data)) {
-            return redirect()->to('admin/create')->with('success', 'Admin created successfully!');
-        } else {
-            return redirect()->back()->with('error', 'Failed to create admin.');
-        }
-        
-
-    }
+         public function store()
+         {
+             $validation = \Config\Services::validation();
+         
+             $validation->setRules([
+                 'username' => 'required|min_length[3]|max_length[20]',
+                 'email' => 'required|valid_email',
+                 'password' => 'required|min_length[6]'
+             ]);
+         
+            //  if (!$validation->withRequest($this->request)->run()) {
+            //      return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+            //  }
+         
+             $admin = new Admin();
+             $data = [
+                 'username' => $this->request->getPost('username'),
+                 'email' => $this->request->getPost('email'),
+                 'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+             ];
+            //  $admin->insert($data);
+             if ($admin->insert($data)) {
+                //  return redirect()->to('admin/create')->with('success', 'Admin created successfully!');
+                  route_to('admin/index');
+             } else {
+                 return redirect()->back()->with('error', 'Failed to create admin.');
+             }
+         }
+         
    
       // Show edit form
       public function edit($id)
