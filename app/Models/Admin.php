@@ -10,7 +10,7 @@ class Admin extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
+    // protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['username', 'email', 'password', 'created_at', 'updated_at'];
 

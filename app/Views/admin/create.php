@@ -16,7 +16,7 @@
                         <h1 class="h3 mb-0 text-center">Add New Admin</h1>
                     </div>
                     <div class="card-body">
-                        <form action="<?= site_url('admin/store') ?>" method="post">
+                        <form action="<?= route_to('admin/store') ?>" method="post">
                             <?= csrf_field() ?>
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username:</label>
