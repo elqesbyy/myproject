@@ -46,6 +46,16 @@ $routes->get('/cour/edit/(:num)', 'CourController::edit/$1');
 $routes->post('/cour/update/(:num)', 'CourController::update/$1');
 $routes->get('/cour/delete/(:num)', 'CourController::delete/$1');
 
+
+$routes->group('professeur', function ($routes) {
+    $routes->get('/', 'ProfesseurController::index');
+    $routes->get('create', 'ProfesseurController::create');
+    $routes->post('store', 'ProfesseurController::store');
+    $routes->get('edit/(:num)', 'ProfesseurController::edit/$1');
+    $routes->post('update/(:num)', 'ProfesseurController::update/$1');
+    $routes->get('delete/(:num)', 'ProfesseurController::delete/$1');
+});
+
 // $routes->get('test', 'TestController::index');
 // $routes->post('test', 'TestController::store');
 
