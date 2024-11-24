@@ -31,7 +31,6 @@ class AdminController extends BaseController
          // Save new admin
          public function store()
          {
-            log_message('debug', 'store() method called');
 
              $validation = \Config\Services::validation();
          
@@ -51,12 +50,9 @@ class AdminController extends BaseController
                  'email' => $this->request->getPost('email'),
                  'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
              ];
-             log_message('debug', 'Data to insert: ' . json_encode($data));
              if ($admin->insert($data)) {
-                log_message('info', 'Admin successfully inserted into the database.');
                   return redirect()->to('admin/index')->with('success', 'Admin created successfully!');
               } else {
-                log_message('error', 'Failed to insert admin into the database.');
                 return redirect()->back()->with('error', 'Failed to create admin.');
              }
          }
@@ -74,8 +70,8 @@ class AdminController extends BaseController
           // Update admin data
     public function update($id)
     {
-        $this->adminl->update($id, [
-            'name' => $this->request->getPost('name'),
+        $this->admin->update($id, [
+            'username' => $this->request->getPost('username'),
             'email' => $this->request->getPost('email'),
             'password' => $this->request->getPost('password'),
         ]);
@@ -87,6 +83,6 @@ class AdminController extends BaseController
       public function delete($id)
       {
           $this->admin->delete($id);
-          return redirect()->to('/admin');
+          return redirect()->to('/admin/index');
       }
 }
