@@ -9,7 +9,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-  $admin = new Admin();
+        $admin = new Admin();
         $professeur = new Professeur();
         $etudiant = new Etudiant();
 
@@ -23,6 +23,6 @@ class Home extends BaseController
             'total_admins' => $total_admins,
             'total_professeurs' => $total_professeurs,
             'total_etudiants' => $total_etudiants
-        ]);
+    ]);
     }    
 }
