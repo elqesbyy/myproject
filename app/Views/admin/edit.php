@@ -1,7 +1,25 @@
-<h2>Edit Admin</h2>
-<form action="/admin/update/<?= $admin['id'] ?>" method="post">
-    <label>Name:</label><input type="text" name="name" value="<?= $admin['name'] ?>"><br>
-    <label>Email:</label><input type="text" name="email" value="<?= $admin['email'] ?>"><br>
-    <label>password:</label><input type="password" name="password" value="<?= $admin['password'] ?>"><br>
-    <button type="submit">Update</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Edit Admin</h1>
+        <form action="<?= route_to('admin/update') ?><?= esc($admin['id']); ?>" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" id="username" class="form-control" value="<?= esc($admin['username']); ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" value="<?= esc($admin['email']); ?>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Admin</button>
+        </form>
+    </div>
+</body>
+</html>
