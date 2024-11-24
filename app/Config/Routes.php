@@ -6,8 +6,10 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
- 
-$routes->get('/', 'Home::index');
+$routes->get('/admindashboard', 'Home::index');
+
+
+
 $routes->get('admin/index', 'AdminController::index');
 $routes->get('admin/create', 'AdminController::create');
 $routes->post('admin/store', 'AdminController::store');
