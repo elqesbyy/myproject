@@ -16,6 +16,15 @@ $routes->post('admin/update/(:num)', 'AdminController::update/$1');
 $routes->get('admin/delete/(:num)', 'AdminController::delete/$1');
 
 
+
+
+$routes->get('/filiere', 'FiliereController::index');
+$routes->get('/filiere/create', 'FiliereController::create');
+$routes->post('/filiere/store', 'FiliereController::store');
+$routes->get('/filiere/edit/(:num)', 'FiliereController::edit/$1');
+$routes->post('/filiere/update/(:num)', 'FiliereController::update/$1');
+$routes->get('/filiere/delete/(:num)', 'FiliereController::delete/$1');
+
 // $routes->get('test', 'TestController::index');
 // $routes->post('test', 'TestController::store');
 
