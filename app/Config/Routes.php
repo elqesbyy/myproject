@@ -32,6 +32,12 @@ $routes->get('/etudiant/edit/(:num)', 'EtudiantController::edit/$1');
 $routes->post('/etudiant/update/(:num)', 'EtudiantController::update/$1');
 $routes->get('/etudiant/delete/(:num)', 'EtudiantController::delete/$1');
 
+$routes->get('/matiere', 'MatiereController::index');
+$routes->get('/matiere/create', 'MatiereController::create');
+$routes->post('/matiere/store', 'MatiereController::store');
+$routes->get('/matiere/edit/(:num)', 'MatiereController::edit/$1');
+$routes->post('/matiere/update/(:num)', 'MatiereController::update/$1');
+$routes->get('/matiere/delete/(:num)', 'MatiereController::delete/$1');
 
 // $routes->get('test', 'TestController::index');
 // $routes->post('test', 'TestController::store');

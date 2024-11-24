@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Matier extends Model
+class Matiere extends Model
 {
-    protected $table            = 'matiers';
+    protected $table            = 'matieres';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['name'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
