@@ -30,7 +30,7 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h2 class="form-header">Edit Course</h2>
+            <h2 class="form-header">Edit Cour</h2>
 
             <!-- Success or Error Messages -->
             <?php if (session()->getFlashdata('success')): ?>
@@ -45,11 +45,11 @@
             <?php endif; ?>
 
             <!-- Form to edit a course -->
-            <form action="<?= site_url('cours/update/' . esc($cours['id'])); ?>" method="POST" enctype="multipart/form-data">
+            <form action="/cour/update/<?= esc($cour['id']); ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="mb-3">
                     <label for="name" class="form-label">Course Name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="<?= esc($cours['name']); ?>" required>
+                    <input type="text" class="form-control" id="name" name="name" value="<?= esc($cour['name']); ?>" required>
                 </div>
 
                 <div class="mb-3">
@@ -57,7 +57,7 @@
                     <select class="form-select" id="matiere_id" name="matiere_id" required>
                         <option value="" disabled>Select a Matière</option>
                         <?php foreach ($matieres as $matiere): ?>
-                            <option value="<?= esc($matiere['id']); ?>" <?= ($matiere['id'] == $cours['matiere_id']) ? 'selected' : ''; ?>>
+                            <option value="<?= esc($matiere['id']); ?>" <?= ($matiere['id'] == $cour['matiere_id']) ? 'selected' : ''; ?>>
                                 <?= esc($matiere['name']); ?>
                             </option>
                         <?php endforeach; ?>
@@ -67,15 +67,15 @@
                 <div class="mb-3">
                     <label for="pdf_file" class="form-label">Upload PDF (Optional)</label>
                     <input type="file" class="form-control" id="pdf_file" name="pdf_file">
-                    <?php if ($cours['pdf_file']): ?>
+                    <?php if ($cour['pdf_file']): ?>
                         <div class="mt-2">
                             <strong>Current PDF:</strong> 
-                            <a href="<?= base_url('uploads/' . esc($cours['pdf_file'])); ?>" target="_blank">Download</a>
+                            <a href="<?= base_url('uploads/' . esc($cour['pdf_file'])); ?>" target="_blank">Download</a>
                         </div>
                     <?php endif; ?>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-submit">Update Course</button>
+                <button type="submit" class="btn btn-primary btn-submit">Update Cour</button>
             </form>
 
         </div>

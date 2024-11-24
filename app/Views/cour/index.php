@@ -71,11 +71,10 @@
                         
                         <!-- Edit and Delete buttons -->
                         <div class="mt-2">
-                            <a href="<?= site_url('cours/edit/' . esc($course['id'])); ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="<?= site_url('cours/delete/' . esc($course['id'])); ?>" method="POST" class="d-inline">
-                                <?= csrf_field(); ?>
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this course?');">Delete</button>
-                            </form>
+                        <a href="/cour/edit/<?= $course['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/cour/delete/<?= $course['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</a>
+
+                            
                         </div>
                     </li>
                 <?php endforeach; ?>

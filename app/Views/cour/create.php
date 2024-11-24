@@ -45,7 +45,7 @@
             <?php endif; ?>
 
             <!-- Form to create a new course -->
-            <form action="<?= site_url('cours/store'); ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= route_to('cour/store'); ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="mb-3">
                     <label for="name" class="form-label">Course Name</label>
