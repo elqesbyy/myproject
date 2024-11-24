@@ -12,7 +12,7 @@ class Cour extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['matiere_id', 'name', 'pdf_file'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +43,11 @@ class Cour extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getCoursWithMatiere()
+    {
+        return $this->select('cours.*, matieres.name as matiere_name')
+                    ->join('matieres', 'matieres.id = cours.matiere_id')
+                    ->findAll();
+    }
 }

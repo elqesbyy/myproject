@@ -39,6 +39,13 @@ $routes->get('/matiere/edit/(:num)', 'MatiereController::edit/$1');
 $routes->post('/matiere/update/(:num)', 'MatiereController::update/$1');
 $routes->get('/matiere/delete/(:num)', 'MatiereController::delete/$1');
 
+$routes->get('/cour', 'CourController::index');
+$routes->get('/cour/create', 'CourController::create');
+$routes->post('/cour/store', 'CourController::store');
+$routes->get('/cour/edit/(:num)', 'CourController::edit/$1');
+$routes->post('/cour/update/(:num)', 'CourController::update/$1');
+$routes->get('/cour/delete/(:num)', 'CourController::delete/$1');
+
 // $routes->get('test', 'TestController::index');
 // $routes->post('test', 'TestController::store');
 
