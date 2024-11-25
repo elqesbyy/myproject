@@ -14,6 +14,13 @@ class Professeur extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['name', 'email', 'password', 'matiere_id'];
 
+    public function getMatiere()
+    {
+        return $this->db->table('matieres')
+                        ->where('id', $this->matiere_id)
+                        ->get()
+                        ->getRow();
+    }
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

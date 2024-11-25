@@ -13,6 +13,13 @@ class Matiere extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['name'];
+    public function getProfesseurs()
+    {
+        return $this->db->table('professeurs')
+                        ->where('matiere_id', $this->id)
+                        ->get()
+                        ->getResult();
+    }
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

@@ -5,6 +5,7 @@ use App\Models\Admin;
 use App\Models\Professeur;
 use App\Models\Etudiant;
 use App\Models\Cour;
+use App\Models\Matiere;
 
 class Home extends BaseController
 {
@@ -29,6 +30,41 @@ class Home extends BaseController
 
     public function professeurdashboard()
     {
-       //
+        // Example: Using hardcoded professeur ID for simplicity
+        $professeurId = 1; // Replace with dynamic logic once you implement auth.
+    
+        // Load models
+        $matiere = new Matiere();
+        $cour = new Cour();
+        $professeur = new Professeur();
+    
+        // Get professeur data
+        $professeur = $professeur->find($professeurId);
+    
+        if (!$professeur) {
+            return "Professeur not found!"; // Handle missing professeur.
+        }
+    
+        // Get the matiere associated with the professeur
+        $matiere = $matiere->find($professeur['matiere_id']);
+    
+        // Get cours related to this matiere
+        $cours = $cour->select('cours.*, matieres.name as matiere_name')
+                           ->join('matieres', 'matieres.id = cours.matiere_id')
+                           ->where('cours.matiere_id', $matiere['id'])
+                           ->findAll();
+    
+        // Pass data to view
+        return view('professeurdashboard', [
+            'professeur' => $professeur,
+            'matiere'    => $matiere,
+            'cours'      => $cours,
+        ]);
     }
+    
+
+
+
+
+    
 }

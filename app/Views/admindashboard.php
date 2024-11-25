@@ -128,7 +128,7 @@
         }
     </style>
 </head>
-<body>
+<body> 
     <!-- Sidebar -->
     <div class="sidebar">
         <h3 class="text-center text-white">Dashboard</h3>
