@@ -8,6 +8,9 @@ use CodeIgniter\Router\RouteCollection;
 
  
 $routes->get('/', 'Home::index');
+$routes->get('auth/register', 'Auth::register');
+$routes->post('auth/save_register', 'Auth::save_register');
+
 $routes->get('admin', 'AdminController::index');
 $routes->get('admin/create', 'AdminController::create');
 $routes->post('admin/store', 'AdminController::store');
