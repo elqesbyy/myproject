@@ -12,7 +12,7 @@ class Cour extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['matiere_id', 'name', 'pdf_file'];
+    protected $allowedFields    = ['matiere_id','professeur_id', 'name', 'pdf_file'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

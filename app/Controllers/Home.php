@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\Admin;
 use App\Models\Professeur;
 use App\Models\Etudiant;
+use App\Models\Cour;
 
 class Home extends BaseController
 {
@@ -25,4 +26,9 @@ class Home extends BaseController
             'total_etudiants' => $total_etudiants
     ]);
     }    
+
+    public function professeurdashboard()
+    {
+       //
+    }
 }

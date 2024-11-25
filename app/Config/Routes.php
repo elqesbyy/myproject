@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/admindashboard', 'Home::index');
+$routes->get('/professeurdashboard', 'Home::professeurdashboard');
 
 
 

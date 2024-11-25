@@ -18,6 +18,10 @@ class CreateCoursTable extends Migration
                 'type'       => 'INT',
                 'constraint' => 11,
             ],
+            'professeur_id' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+            ],
             'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
@@ -39,9 +43,9 @@ class CreateCoursTable extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('matiere_id', 'matieres', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('professeur_id', 'professeurs', 'id', 'CASCADE', 'CASCADE'); // New foreign key
         $this->forge->createTable('cours');
     }
-    
 
     public function down()
     {

@@ -61,6 +61,15 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <div class="mb-3">
+                    <label for="professeur_id" class="form-label">Professeur</label>
+                    <select class="form-select" id="professeur_id" name="professeur_id" required>
+                        <option value="" disabled selected>Select Professeur</option>
+                        <?php foreach ($professeurs as $professeur): ?>
+                            <option value="<?= esc($professeur['id']); ?>"><?= esc($professeur['name']); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
                 <div class="mb-3">
                     <label for="pdf_file" class="form-label">Upload PDF</label>

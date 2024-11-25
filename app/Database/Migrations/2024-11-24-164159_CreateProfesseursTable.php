@@ -11,6 +11,7 @@ class CreateProfesseursTable extends Migration
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
+                'constraint'     => 11,
                 'auto_increment' => true,
             ],
             'name' => [
