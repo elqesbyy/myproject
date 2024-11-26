@@ -18,16 +18,33 @@ class AuthController extends BaseController
 
     public function processLogin()
     {
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
+            // Retrieve email and password from the POST request
+            $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
 
-        // Check in admins table
-        $admin = new Admin();
-        $admin = $admin->where('email', $email)->first();
+            // Check if the email exists in the admins table
+            $admin = new Admin();
+            $admin = $admin->where('email', $email)->first();
 
-        if ($admin && password_verify($password, $admin['password'])) {
-            return redirect()->to(base_url('admindashboard'));
-                }
+            if ($admin && password_verify($password, $admin['password'])) {
+                // If admin matches, set session and redirect to admin dashboard
+                session()->set('user_id', $admin['id']);
+                session()->set('user_type', 'admin');
+                return redirect()->to(base_url('admindashboard'));
+            }
+
+
+
+        // $email = $this->request->getPost('email');
+        // $password = $this->request->getPost('password');
+
+        // // Check in admins table
+        // $admin = new Admin();
+        // $admin = $admin->where('email', $email)->first();
+
+        // if ($admin && password_verify($password, $admin['password'])) {
+        //     return redirect()->to(base_url('admindashboard'));
+        //         }
 
         // Check in professeurs table
         // $professeur = new Professeur();
