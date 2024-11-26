@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
 
     <!-- FontAwesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -12,101 +12,136 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+
         /* Sidebar Styling */
         .sidebar {
             position: fixed;
             top: 0;
             left: 0;
-            width: 250px;
+            width: 280px;
             height: 100%;
-            background-color: #343a40;
-            color: #fff;
+            background: linear-gradient(180deg, #1d3557, #457b9d);
+            color: white;
             padding-top: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
 
         .sidebar a {
-            color: #ddd;
-            font-weight: bold;
-            padding: 10px 20px;
             display: block;
+            color: #ddd;
+            font-weight: 600;
+            padding: 15px 25px;
+            margin: 5px 15px;
             text-decoration: none;
-            transition: background 0.3s ease, color 0.3s ease;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .sidebar a:hover {
-            background-color: #495057;
-            color: #fff; /* Change text color on hover */
+            background-color: #1d3557;
+            color: #fff;
+            transform: translateX(5px);
         }
 
         .sidebar a i {
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
-        /* Main container */
+        /* Main Content */
         .container-main {
-            margin-left: 260px;
+            margin-left: 300px;
             padding: 30px;
         }
 
-        /* Header section */
+        /* Header Section */
         .dashboard-header {
-            background: linear-gradient(135deg, #007bff, #00c6ff);
+            background: linear-gradient(90deg, #457b9d, #1d3557);
             color: white;
-            padding: 20px;
+            padding: 20px 30px;
             border-radius: 10px;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Stats cards */
+        .dashboard-header h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        /* Statistics Cards */
         .stat-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Add links */
+        .stat-card h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 24px;
+            margin: 0;
+            font-weight: bold;
+            color: #1d3557;
+        }
+
+        .stat-card i {
+            font-size: 36px;
+            color: #457b9d;
+            margin-bottom: 15px;
+        }
+
+        /* Add Link Buttons */
         .add-link a {
             display: inline-block;
             padding: 12px 20px;
-            margin: 10px;
+            margin: 10px 5px;
             font-size: 16px;
-            color: #fff;
-            background-color: #28a745;
+            color: white;
+            background-color: #457b9d;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .add-link a:hover {
-            background-color: #218838;
+            background-color: #1d3557;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsiveness */
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 position: absolute;
                 width: 100%;
                 height: auto;
-                top: 0;
-                left: 0;
-                padding-top: 10px;
+                z-index: 10;
             }
 
             .container-main {
                 margin-left: 0;
-                padding: 10px;
+                padding: 20px;
             }
 
             .add-link a {
@@ -114,90 +149,61 @@
                 margin-bottom: 10px;
             }
         }
-
-        /* Animation for Stat Cards */
-        .stat-card {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .stat-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
-<body> 
+<body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <h3 class="text-center text-white">Dashboard</h3>
-        <a href="<?= route_to('admin/index'); ?>"><i class="fas fa-users"></i> Admins </a>
-        <a href="<?= route_to('professeur'); ?>"><i class="fas fa-chalkboard-teacher"></i> Professeurs </a>
-        <a href="<?= route_to('etudiant'); ?>"><i class="fas fa-graduation-cap"></i> Etudiants </a>
-        <a href="<?= route_to('filiere'); ?>"><i class="fas fa-building"></i> Filières </a>
-        <a href="<?= route_to('matiere'); ?>"><i class="fas fa-book"></i> Matières </a>
-        <a href="<?= route_to('cour'); ?>"><i class="fas fa-book-open"></i> Cours </a>
+        <h3>Admin Dashboard</h3>
+        <a href="<?= route_to('admin/index'); ?>"><i class="fas fa-users"></i> Admins</a>
+        <a href="<?= route_to('professeur'); ?>"><i class="fas fa-chalkboard-teacher"></i> Professeurs</a>
+        <a href="<?= route_to('etudiant'); ?>"><i class="fas fa-graduation-cap"></i> Etudiants</a>
+        <a href="<?= route_to('filiere'); ?>"><i class="fas fa-building"></i> Filières</a>
+        <a href="<?= route_to('matiere'); ?>"><i class="fas fa-book"></i> Matières</a>
+        <a href="<?= route_to('cour'); ?>"><i class="fas fa-book-open"></i> Cours</a>
     </div>
 
     <!-- Main Content -->
     <div class="container-main">
-        <!-- Header with Statistics -->
+        <!-- Header -->
         <div class="dashboard-header">
-            <h1>Welcome to the Admin Dashboard</h1>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="stat-card visible">
-                        <h4>Admins</h4>
-                        <p>120</p>
-                    </div>
+            <h1>Welcome, Admin!</h1>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="row my-4">
+            <div class="col-lg-4">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Admins</h4>
+                    <p><?= $total_admins; ?></p>
                 </div>
-                <div class="col-md-3">
-                    <div class="stat-card visible">
-                        <h4>Professeurs</h4>
-                        <p>45</p>
-                    </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="stat-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Professeurs</h4>
+                    <p><?= $total_professeurs; ?></p>
                 </div>
-                <div class="col-md-3">
-                    <div class="stat-card visible">
-                        <h4>Etudiants</h4>
-                        <p>350</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card visible">
-                        <h4>Filières</h4>
-                        <p>10</p>
-                    </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="stat-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Etudiants</h4>
+                    <p><?= $total_etudiants; ?></p>
                 </div>
             </div>
         </div>
 
-        <!-- Add new links -->
+        <!-- Add Links -->
         <div class="add-link">
             <a href="<?= route_to('admin/create'); ?>"><i class="fas fa-user-plus"></i> Ajouter Admin</a>
-            <a href="<?= route_to('professeur/create'); ?>"><i class="fas fa-chalkboard-teacher"></i> Ajouter Professeur</a>
-            <a href="<?= route_to('etudiant/create'); ?>"><i class="fas fa-graduation-cap"></i> Ajouter Etudiant</a>
-            <a href="<?= route_to('filiere/create'); ?>"><i class="fas fa-building"></i> Ajouter Filière</a>
-            <a href="<?= route_to('matiere/create'); ?>"><i class="fas fa-book"></i> Ajouter Matière</a>
-            <a href="<?= route_to('cour/create'); ?>"><i class="fas fa-book-open"></i> Ajouter Cours</a>
+            <a href="<?= route_to('professeur/create'); ?>"><i class="fas fa-user-plus"></i> Ajouter Professeur</a>
+            <a href="<?= route_to('etudiant/create'); ?>"><i class="fas fa-user-plus"></i> Ajouter Etudiant</a>
         </div>
-
-        <!-- List of items (for example, Admin List) -->
-        
     </div>
 
-    <!-- Bootstrap and FontAwesome JS -->
+    <!-- Bootstrap and JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JavaScript for Stat Card Visibility Animation -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.stat-card');
-            cards.forEach(card => {
-                card.classList.add('visible');
-            });
-        });
-    </script>
 </body>
 </html>

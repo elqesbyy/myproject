@@ -5,7 +5,7 @@ use App\Models\Admin;
 use App\Models\Professeur;
 use App\Models\Etudiant;
 use App\Models\Cour;
-use App\Models\Matiere;
+use App\Models\Matiere; 
 
 class Home extends BaseController
 {
