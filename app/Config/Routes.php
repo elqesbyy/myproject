@@ -12,6 +12,8 @@ $routes->get('logout', 'AuthController::logout');
 
 $routes->get('/admindashboard', 'Home::index');
 $routes->get('/professeurdashboard', 'Home::professeurdashboard');
+$routes->get('/etudiantdashboard', 'Home::etudiantdashboard');
+
 
 
 

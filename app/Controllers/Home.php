@@ -63,7 +63,22 @@ class Home extends BaseController
     }
     
 
+    public function etudiantdashboard()
+    {
+        // Load models
+        $cour = new Cour();
+        $matiere = new Matiere();
+        $professeur = new Professeur();
 
+        // Fetch all courses
+        $cours = $cour
+            ->select('cours.id, cours.name as cour_name, matieres.name as matiere_name, professeurs.name as professeur_name')
+            ->join('matieres', 'matieres.id = cours.matiere_id')
+            ->join('professeurs', 'professeurs.id = matieres.professeur_id')
+            ->findAll();
+
+        return view('etudiantdashboard', ['cours' => $cours]);
+    }
 
 
     
