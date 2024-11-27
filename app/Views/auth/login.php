@@ -92,9 +92,9 @@
             </div>
             <button type="submit" class="btn-login">Login</button>
         </form>
-        <div class="form-footer">
+        <!-- <div class="form-footer">
             <p>Forgot your password? <a href="#">Reset it</a></p>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>

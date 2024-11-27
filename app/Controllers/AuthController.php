@@ -10,7 +10,9 @@ use App\Models\Etudiant;
 
 class AuthController extends BaseController
 {
-    
+    public function home(){
+        return view('welcome_page');
+    }
         public function login()
     {
         return view('auth/login');
