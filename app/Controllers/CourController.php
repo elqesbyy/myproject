@@ -17,7 +17,7 @@ class CourController extends BaseController
 
     public function __construct()
     {
-        $this->cour = new Cour();
+        $this->cour = new Cour(); 
         $this->matiere = new Matiere();
         $this->professeur = new Professeur();
 
