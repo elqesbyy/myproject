@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de bord Admin</title>
-
-    <!-- FontAwesome pour les icônes -->
+    <title>Tableau de bord Étudiant</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
-        /* Général */
+        /* Styles généraux */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Barre latérale */
+        /* Sidebar */
         .sidebar {
             position: fixed;
             top: 0;
@@ -78,7 +75,7 @@
             margin: 0;
         }
 
-        /* Cartes statistiques */
+        /* Cartes de statistiques */
         .stat-card {
             background: #ffffff;
             border-radius: 12px;
@@ -130,7 +127,7 @@
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Adaptations Responsives */
+        /* Ajustements responsives */
         @media (max-width: 768px) {
             .sidebar {
                 position: absolute;
@@ -152,58 +149,55 @@
     </style>
 </head>
 <body>
-    <!-- Barre latérale -->
+    <!-- Sidebar -->
     <div class="sidebar">
-        <h3>Tableau de bord Admin</h3>
-        <a href="<?= route_to('admin/index'); ?>"><i class="fas fa-users"></i> Administrateurs</a>
-        <a href="<?= route_to('professeur'); ?>"><i class="fas fa-chalkboard-teacher"></i> Professeurs</a>
-        <a href="<?= route_to('etudiant'); ?>"><i class="fas fa-graduation-cap"></i> Étudiants</a>
-        <a href="<?= route_to('filiere'); ?>"><i class="fas fa-building"></i> Filières</a>
-        <a href="<?= route_to('matiere'); ?>"><i class="fas fa-book"></i> Matières</a>
-        <a href="<?= route_to('cour'); ?>"><i class="fas fa-book-open"></i> Cours</a>
+        <h3>Tableau de bord Étudiant</h3>
+        <a href="#"><i class="fas fa-home"></i> Accueil</a>
+        <a href="<?= route_to('cour'); ?>"><i class="fas fa-book"></i> Mes Cours</a>
+        <a href="#"><i class="fas fa-user"></i> Mon Profil</a>
+        <a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
     </div>
 
     <!-- Contenu principal -->
     <div class="container-main">
         <!-- En-tête -->
         <div class="dashboard-header">
-            <h1>Bienvenue, Admin !</h1>
+            <h1>Bienvenue, Étudiant!</h1>
         </div>
 
-        <!-- Section des statistiques -->
+        <!-- Statistiques (nombre de cours, matières, professeurs) -->
         <div class="row my-4">
             <div class="col-lg-4">
                 <div class="stat-card">
-                    <i class="fas fa-users"></i>
-                    <h4>Administrateurs</h4>
-                    <p><?= $total_admins; ?></p>
+                    <i class="fas fa-book"></i>
+                    <h4>Mes Cours</h4>
+                    <p><?= isset($total_courses) ? $total_courses : 0; ?></p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="stat-card">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h4>Professeurs</h4>
-                    <p><?= $total_professeurs; ?></p>
+                    <p><?= isset($total_professors) ? $total_professors : 0; ?></p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="stat-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h4>Étudiants</h4>
-                    <p><?= $total_etudiants; ?></p>
+                    <i class="fas fa-book-open"></i>
+                    <h4>Matières</h4>
+                    <p><?= isset($total_subjects) ? $total_subjects : 0; ?></p>
                 </div>
             </div>
         </div>
 
-        <!-- Liens d'ajout -->
+        <!-- Liens d'action -->
         <div class="add-link">
-            <a href="<?= route_to('admin/create'); ?>"><i class="fas fa-user-plus"></i> Ajouter un Administrateur</a>
-            <a href="<?= route_to('professeur/create'); ?>"><i class="fas fa-user-plus"></i> Ajouter un Professeur</a>
-            <a href="<?= route_to('etudiant/create'); ?>"><i class="fas fa-user-plus"></i> Ajouter un Étudiant</a>
+            <a href="#"><i class="fas fa-book-reader"></i> Voir Mes Cours</a>
+            <a href="#"><i class="fas fa-user-edit"></i> Modifier Mon Profil</a>
         </div>
     </div>
 
-    <!-- Bootstrap et JavaScript -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

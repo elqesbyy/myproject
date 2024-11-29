@@ -16,7 +16,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+        } 
         .dashboard h1 {
             font-size: 2rem;
             color: #333;

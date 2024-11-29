@@ -1,127 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to School Platform</title>
+    <title>Bienvenue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
 
-        /* Body */
         body {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            height: 100vh;
+            background: linear-gradient(to bottom, #4e73df, #1d3557);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        header {
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-        }
-
-        header nav a {
             color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1rem;
+            overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        header nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Hero Section */
-        .hero {
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
             text-align: center;
-            margin: 3rem auto;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s ease-out;
         }
 
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .welcome-container {
+            text-align: center;
+            animation: fadeInUp 2s ease-in-out;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.5;
-        }
-
-        .hero button {
-            padding: 12px 25px;
-            font-size: 1rem;
+        .btn-login {
+            background-color: #007bff;
             color: #fff;
-            background: #2575fc;
-            border: none;
-            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .hero button:hover {
-            background: #1e62d1;
+        .btn-login:hover {
+            background-color: #0056b3;
             transform: scale(1.05);
         }
 
-        /* Footer */
-        footer {
-            width: 100%;
-            text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+        .btn-login:active {
+            background-color: #00408c;
         }
 
-        footer p {
-            font-size: 0.9rem;
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1>School Platform</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Welcome to School Platform</h2>
-        <p>Your trusted partner in managing and accessing school resources with ease. Join us today to streamline your academic journey.</p>
-        <a href="<?= route_to('login'); ?>"><i class="fas fa-user-plus"></i> login</a>
-        </section>
+    <!-- Welcome Message -->
+    <div class="welcome-container">
+        <h1>Bienvenue sur La Plateforme E-Cours</h1>
+        <p>Nous sommes ravis de vous voir ici !</p>
+        <a href="<?= route_to('login'); ?>" class="btn-login">Se Connecter</a>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 School Platform. All Rights Reserved.</p>
-    </footer>
+    <script>
+        // Animation on page load (JavaScript can be used for extra interactivity if needed)
+        window.onload = function() {
+            const welcomeMessage = document.querySelector('.welcome-container');
+            welcomeMessage.style.animation = 'fadeInUp 2s ease-in-out';
+        };
+    </script>
+
 </body>
 </html>

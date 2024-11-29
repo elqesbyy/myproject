@@ -10,9 +10,9 @@ $routes->get('/', 'AuthController::home');
 $routes->get('login', 'AuthController::login');
 $routes->post('processlogin', 'AuthController::processLogin');
 $routes->get('logout', 'AuthController::logout');
-$routes->get('/admindashboard', 'Home::index');
-$routes->get('/professeurdashboard', 'Home::professeurdashboard');
-$routes->get('/etudiantdashboard', 'Home::etudiantdashboard');
+$routes->get('myproject/admindashboard', 'Home::index');
+$routes->get('myproject/professeurdashboard', 'Home::professeurdashboard');
+$routes->get('myproject/etudiantdashboard', 'Home::etudiantdashboard');
 
 
 
