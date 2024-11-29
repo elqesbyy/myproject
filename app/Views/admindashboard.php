@@ -167,7 +167,7 @@
     <div class="container-main">
         <!-- En-tête -->
         <div class="dashboard-header">
-            <h1>Bienvenue, Admin !</h1>
+            <h1>Bienvenue!</h1>
         </div>
 
         <!-- Section des statistiques -->
