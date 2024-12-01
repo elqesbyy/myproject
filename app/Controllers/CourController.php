@@ -34,6 +34,18 @@ class CourController extends BaseController
 
         return view('cour/index', $data);
     }
+    public function indexEtudiant()
+    {
+        $data = [
+            'cours' => $this->cour
+                ->select('cours.*, matieres.name as matiere_name, professeurs.name as professeur_name')
+                ->join('matieres', 'matieres.id = cours.matiere_id')
+                ->join('professeurs', 'professeurs.id = cours.professeur_id')
+                ->findAll(),
+        ];
+
+        return view('cour/courEtudiant', $data);
+    }
     public function create()
     {
         $data = [

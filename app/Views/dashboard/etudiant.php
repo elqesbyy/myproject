@@ -155,14 +155,14 @@
         <a href="#"><i class="fas fa-home"></i> Accueil</a>
         <a href="<?= route_to('cour'); ?>"><i class="fas fa-book"></i> Mes Cours</a>
         <a href="#"><i class="fas fa-user"></i> Mon Profil</a>
-        <a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+        <a href=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
     </div>
 
     <!-- Contenu principal -->
     <div class="container-main">
         <!-- En-tête -->
         <div class="dashboard-header">
-            <h1>Bienvenue, Étudiant!</h1>
+            <h1>Bienvenue</h1>
         </div>
 
         <!-- Statistiques (nombre de cours, matières, professeurs) -->
@@ -171,7 +171,7 @@
                 <div class="stat-card">
                     <i class="fas fa-book"></i>
                     <h4>Mes Cours</h4>
-                    <p><?= isset($total_courses) ? $total_courses : 0; ?></p>
+                     <p><?= isset($total_courses) ? $total_courses : 0; ?></p>
                 </div>
             </div>
             <div class="col-lg-4">

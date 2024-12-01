@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'AuthController::home');
 $routes->get('login', 'AuthController::login');
+$routes->get('profile', 'AuthController::profile');
 $routes->post('processlogin', 'AuthController::processLogin');
 $routes->get('logout', 'AuthController::logout');
 $routes->get('myproject/admindashboard', 'Home::index');
@@ -49,6 +50,8 @@ $routes->post('/matiere/update/(:num)', 'MatiereController::update/$1');
 $routes->get('/matiere/delete/(:num)', 'MatiereController::delete/$1');
 
 $routes->get('/cour', 'CourController::index');
+$routes->get('/courEtudiant', 'CourController::indexEtudiant');
+
 $routes->get('/cour/create', 'CourController::create');
 $routes->post('/cour/store', 'CourController::store');
 $routes->get('/cour/edit/(:num)', 'CourController::edit/$1');

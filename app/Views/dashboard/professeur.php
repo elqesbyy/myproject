@@ -149,7 +149,7 @@
         <!-- Cartes Statistiques -->
         <div class="row">
             <div class="col-lg-4 mb-4">
-                <div class="card">
+                 <div class="card">
                     <i class="fas fa-book"></i>
                     <h4>Matières</h4>
                     <p>5</p>

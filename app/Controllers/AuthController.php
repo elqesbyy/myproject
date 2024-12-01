@@ -18,6 +18,9 @@ class AuthController extends BaseController
         return view('auth/login');
     }
 
+    public function profile(){
+        
+    }
     public function processLogin()
     {
             // Retrieve email and password from the POST request
@@ -60,7 +63,7 @@ class AuthController extends BaseController
 
     // If no match, return with an error message
     session()->setFlashdata('error', 'Invalid email or password.');
-    return redirect()->to('/login');
+    return redirect()->to(base_url('login'));
 
     }
 
