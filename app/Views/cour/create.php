@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Course</title>
+    <title>Créer un Cours</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -30,7 +30,7 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h2 class="form-header">Create New Course</h2>
+            <h2 class="form-header">Créer un Nouveau Cours</h2>
 
             <!-- Success or Error Messages -->
             <?php if (session()->getFlashdata('success')): ?>
@@ -48,14 +48,14 @@
             <form action="<?= route_to('cour/store'); ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Course Name</label>
+                    <label for="name" class="form-label">Nom du Cours</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="matiere_id" class="form-label">Matière</label>
                     <select class="form-select" id="matiere_id" name="matiere_id" required>
-                        <option value="" disabled selected>Select a Matière</option>
+                        <option value="" disabled selected>Sélectionner une Matière</option>
                         <?php foreach ($matieres as $matiere): ?>
                             <option value="<?= esc($matiere['id']); ?>"><?= esc($matiere['name']); ?></option>
                         <?php endforeach; ?>
@@ -64,7 +64,7 @@
                 <div class="mb-3">
                     <label for="professeur_id" class="form-label">Professeur</label>
                     <select class="form-select" id="professeur_id" name="professeur_id" required>
-                        <option value="" disabled selected>Select Professeur</option>
+                        <option value="" disabled selected>Sélectionner un Professeur</option>
                         <?php foreach ($professeurs as $professeur): ?>
                             <option value="<?= esc($professeur['id']); ?>"><?= esc($professeur['name']); ?></option>
                         <?php endforeach; ?>
@@ -72,11 +72,11 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="pdf_file" class="form-label">Upload PDF</label>
+                    <label for="pdf_file" class="form-label">Télécharger un PDF</label>
                     <input type="file" class="form-control" id="pdf_file" name="pdf_file">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-submit">Create Course</button>
+                <button type="submit" class="btn btn-primary btn-submit">Créer le Cours</button>
             </form>
 
         </div>

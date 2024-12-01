@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Course</title>
+    <title>Modifier le Cours</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -30,7 +30,7 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h2 class="form-header">Edit Cour</h2>
+            <h2 class="form-header">Modifier le Cours</h2>
 
             <!-- Success or Error Messages -->
             <?php if (session()->getFlashdata('success')): ?>
@@ -48,14 +48,14 @@
             <form action="/cour/update/<?= esc($cour['id']); ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Course Name</label>
+                    <label for="name" class="form-label">Nom du Cours</label>
                     <input type="text" class="form-control" id="name" name="name" value="<?= esc($cour['name']); ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="matiere_id" class="form-label">Matière</label>
                     <select class="form-select" id="matiere_id" name="matiere_id" required>
-                        <option value="" disabled>Select a Matière</option>
+                        <option value="" disabled>Sélectionner une Matière</option>
                         <?php foreach ($matieres as $matiere): ?>
                             <option value="<?= esc($matiere['id']); ?>" <?= ($matiere['id'] == $cour['matiere_id']) ? 'selected' : ''; ?>>
                                 <?= esc($matiere['name']); ?>
@@ -66,7 +66,7 @@
                 <div class="mb-3">
                     <label for="professeur_id" class="form-label">Professeur</label>
                     <select class="form-select" id="professeur_id" name="professeur_id" required>
-                        <option value="" disabled>Select Professeur</option>
+                        <option value="" disabled>Sélectionner un Professeur</option>
                         <?php foreach ($professeurs as $professeur): ?>
                             <option value="<?= esc($professeur['id']); ?>" <?= ($professeur['id'] == $cour['professeur_id']) ? 'selected' : ''; ?>>
                                 <?= esc($professeur['name']); ?>
@@ -76,17 +76,17 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="pdf_file" class="form-label">Upload PDF (Optional)</label>
+                    <label for="pdf_file" class="form-label">Télécharger un PDF (Optionnel)</label>
                     <input type="file" class="form-control" id="pdf_file" name="pdf_file">
                     <?php if ($cour['pdf_file']): ?>
                         <div class="mt-2">
-                            <strong>Current PDF:</strong> 
-                            <a href="<?= base_url('uploads/' . esc($cour['pdf_file'])); ?>" target="_blank">Download</a>
+                            <strong>PDF actuel :</strong> 
+                            <a href="<?= base_url('uploads/' . esc($cour['pdf_file'])); ?>" target="_blank">Télécharger</a>
                         </div>
                     <?php endif; ?>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-submit">Update Cour</button>
+                <button type="submit" class="btn btn-primary btn-submit">Mettre à jour le Cours</button>
             </form>
 
         </div>
