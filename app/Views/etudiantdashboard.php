@@ -139,6 +139,7 @@
         <div class="dashboard-header">
             <h1>Bienvenue</h1>
         </div>
+        
 
         <div class="courses">
             <?php if (!empty($cours)): ?>
