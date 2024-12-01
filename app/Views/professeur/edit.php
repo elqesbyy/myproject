@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Professeur</title>
+    <title>Modifier un Professeur</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -29,10 +29,10 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h1 class="form-title">Edit Professeur</h1>
+            <h1 class="form-title">Modifier un Professeur</h1>
             <form action="/professeur/update/<?= esc($professeur['id']); ?>" method="post">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label">Nom</label>
                     <input type="text" name="name" id="name" class="form-control" value="<?= esc($professeur['name']); ?>" required>
                 </div>
                 <div class="mb-3">
@@ -40,14 +40,14 @@
                     <input type="email" name="email" id="email" class="form-control" value="<?= esc($professeur['email']); ?>" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter new password (optional)">
-                    <small class="form-text text-muted">Leave blank to keep the current password.</small>
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Entrez un nouveau mot de passe (optionnel)">
+                    <small class="form-text text-muted">Laissez vide pour conserver le mot de passe actuel.</small>
                 </div>
                 <div class="mb-3">
                     <label for="matiere_id" class="form-label">Matière</label>
                     <select name="matiere_id" id="matiere_id" class="form-select">
-                        <option value="">Select Matière</option>
+                        <option value="">Sélectionnez une matière</option>
                         <?php foreach ($matieres as $matiere): ?>
                             <option value="<?= esc($matiere['id']); ?>" <?= $professeur['matiere_id'] == $matiere['id'] ? 'selected' : ''; ?>>
                                 <?= esc($matiere['name']); ?>
@@ -56,8 +56,8 @@
                     </select>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <a href="<?= site_url('professeur'); ?>" class="btn btn-secondary">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="<?= site_url('professeur'); ?>" class="btn btn-secondary">Annuler</a>
+                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
                 </div>
             </form>
         </div>

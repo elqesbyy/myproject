@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professeur List</title>
+    <title>Liste des Professeurs</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- FontAwesome icons -->
@@ -140,8 +140,8 @@
         <!-- Professeur List Card -->
         <div class="professeur-list-card">
             <div class="d-flex justify-content-between align-items-center">
-                <h1>Professeur List</h1>
-                <a href="/professeur/create" class="add-new-btn"><i class="fas fa-plus-circle"></i> Add New Professeur</a>
+                <h1>Liste des Professeurs</h1>
+                <a href="/professeur/create" class="add-new-btn"><i class="fas fa-plus-circle"></i> Ajouter un Professeur</a>
             </div>
 
             <!-- Professeur Table -->
@@ -149,7 +149,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Nom</th>
                         <th>Email</th>
                         <th>Matière</th>
                         <th>Actions</th>
@@ -163,8 +163,8 @@
                             <td><?= esc($professeur['email']); ?></td>
                             <td><?= esc($professeur['matiere_name'] ?? 'N/A'); ?></td>
                             <td>
-                                <a href="/professeur/edit/<?= $professeur['id']; ?>" class="btn btn-sm btn-edit"><i class="fas fa-edit"></i> Edit</a>
-                                <a href="/professeur/delete/<?= $professeur['id']; ?>" class="btn btn-sm btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');"><i class="fas fa-trash-alt"></i> Delete</a>
+                                <a href="/professeur/edit/<?= $professeur['id']; ?>" class="btn btn-sm btn-edit"><i class="fas fa-edit"></i> Modifier</a>
+                                <a href="/professeur/delete/<?= $professeur['id']; ?>" class="btn btn-sm btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce professeur ?');"><i class="fas fa-trash-alt"></i> Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

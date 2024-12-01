@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Professeur</title>
+    <title>Créer un Professeur</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -29,32 +29,32 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h1 class="form-title">Create Professeur</h1>
+            <h1 class="form-title">Créer un Professeur</h1>
             <form action='/professeur/store' method="post">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter name" required>
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Entrez le nom" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Entrez l'email" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Entrez le mot de passe" required>
                 </div>
                 <div class="mb-3">
                     <label for="matiere_id" class="form-label">Matière</label>
                     <select name="matiere_id" id="matiere_id" class="form-select">
-                        <option value="">Select Matière</option>
+                        <option value="">Sélectionnez une matière</option>
                         <?php foreach ($matieres as $matiere): ?>
                             <option value="<?= esc($matiere['id']); ?>"><?= esc($matiere['name']); ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <a href="<?= site_url('professeur'); ?>" class="btn btn-secondary">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a href="<?= site_url('professeur'); ?>" class="btn btn-secondary">Annuler</a>
+                    <button type="submit" class="btn btn-primary">Créer</button>
                 </div>
             </form>
         </div>
