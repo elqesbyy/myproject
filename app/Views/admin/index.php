@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin List</title>
+    <title>Liste des Administrateurs</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- FontAwesome icons -->
 
     <style>
         body {
-            background-color: #e9ecef; /* Elegant light gray background */
+            background-color: #f8f9fa; /* Arrière-plan gris clair */
             font-family: 'Arial', sans-serif;
         }
 
@@ -61,7 +61,7 @@
         .admin-item {
             padding: 20px;
             border-radius: 10px;
-            background-color: #f8f9fa;
+            background-color: #e9ecef;
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
@@ -71,7 +71,7 @@
         }
 
         .admin-item:hover {
-            background-color: #e9ecef;
+            background-color: #dee2e6;
             transform: translateX(10px);
         }
 
@@ -132,8 +132,8 @@
     <div class="container admin-list-container">
         <div class="admin-list-card">
             <div class="admin-header">
-                <h1>Admin List</h1>
-                <a href="/admin/create" class="add-new-btn"><i class="fas fa-plus-circle"></i> Add New Admin</a>
+                <h1>Liste des Administrateurs</h1>
+                <a href="/admin/create" class="add-new-btn"><i class="fas fa-plus-circle"></i> Ajouter un Administrateur</a>
             </div>
 
             <div class="divider"></div>
@@ -146,8 +146,8 @@
                             <span class="admin-email"><?= esc($admin['email']); ?></span>
                         </div>
                         <div class="admin-actions">
-                            <a href="/admin/edit/<?= esc($admin['id']); ?>" class="btn btn-sm btn-edit"><i class="fas fa-edit"></i> Edit</a>
-                            <a href="/admin/delete/<?= esc($admin['id']); ?>" class="btn btn-sm btn-delete" onclick="return confirm('Are you sure you want to delete this admin?');"><i class="fas fa-trash-alt"></i> Delete</a>
+                            <a href="/admin/edit/<?= esc($admin['id']); ?>" class="btn btn-sm btn-edit"><i class="fas fa-edit"></i> Modifier</a>
+                            <a href="/admin/delete/<?= esc($admin['id']); ?>" class="btn btn-sm btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet administrateur ?');"><i class="fas fa-trash-alt"></i> Supprimer</a>
                         </div>
                     </li>
                 <?php endforeach; ?>
